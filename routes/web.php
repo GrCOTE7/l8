@@ -17,7 +17,7 @@ use App\Http\Controllers\ArticleController;
 |
 */
 
-use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\ContactController;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
@@ -25,7 +25,7 @@ Route::get('{n}', function ($n) {
   return 'Je suis la page '.$n.' !';
 })->where('n', '[1-3]');
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 Route::get('article/{n}', [ArticleController::class, 'show'])->where('n', '[0-9]+');
 
@@ -33,7 +33,12 @@ Route::get('facture/{n}', function ($n) {
   return view('facture')->with('numero', $n);
 })->where('n', '[0-9]+');
 
-use App\Http\Controllers\UsersController;
+use App\Http\Controllers\WelcomeController;
 
-Route::get('users', [UsersController::class, 'create']);
-Route::post('users', [UsersController::class, 'store']);
+Route::get('user', [UserController::class, 'create']);
+Route::post('user', [UserController::class, 'store']);
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('contact', [ContactController::class, 'create']);
+Route::post('contact', [ContactController::class, 'store']);
