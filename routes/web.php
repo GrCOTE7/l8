@@ -5,8 +5,7 @@
  *
  */
 
-use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\WelcomeController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -18,9 +17,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-  return view('welcome');
-});
+use Illuminate\Support\Facades\Route;
+
+Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
 Route::get('{n}', function ($n) {
   return 'Je suis la page '.$n.' !';
