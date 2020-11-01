@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-  return view('vue1');
+  return view('welcome');
 });
 
 Route::get('{n}', function ($n) {
