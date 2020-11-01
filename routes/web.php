@@ -5,7 +5,7 @@
  *
  */
 
-use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\ArticleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +17,7 @@ use App\Http\Controllers\WelcomeController;
 |
 */
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
 
 Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
@@ -25,13 +25,9 @@ Route::get('{n}', function ($n) {
   return 'Je suis la page '.$n.' !';
 })->where('n', '[1-3]');
 
-Route::get('test', function () {
-  return response('un test', 200)->header('Content-Type', 'text/plain');
-});
+use Illuminate\Support\Facades\Route;
 
-Route::get('article/{n}', function ($n) {
-  return view('article')->with('numero', $n);
-})->where('n', '[0-9]+');
+Route::get('article/{n}', [ArticleController::class, 'show'])->where('n', '[0-9]+');
 
 Route::get('facture/{n}', function ($n) {
   return view('facture')->with('numero', $n);
