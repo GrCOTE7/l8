@@ -32,3 +32,8 @@ Route::get('article/{n}', [ArticleController::class, 'show'])->where('n', '[0-9]
 Route::get('facture/{n}', function ($n) {
   return view('facture')->with('numero', $n);
 })->where('n', '[0-9]+');
+
+use App\Http\Controllers\UsersController;
+
+Route::get('users', [UsersController::class, 'create']);
+Route::post('users', [UsersController::class, 'store']);
