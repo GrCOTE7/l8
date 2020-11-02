@@ -6,6 +6,12 @@
  */
 
 use App\Http\Controllers\ArticleController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\JsonController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\WelcomeController;
+use Illuminate\Support\Facades\Route;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +23,7 @@ use App\Http\Controllers\ArticleController;
 |
 */
 
-use App\Http\Controllers\ContactController;
+
 
 Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
@@ -25,25 +31,17 @@ Route::get('{n}', function ($n) {
   return 'Je suis la page '.$n.' !';
 })->where('n', '[1-3]');
 
-use App\Http\Controllers\JsonController;
-
 Route::get('article/{n}', [ArticleController::class, 'show'])->where('n', '[0-9]+');
 
 Route::get('facture/{n}', function ($n) {
   return view('facture')->with('numero', $n);
 })->where('n', '[0-9]+');
 
-use App\Http\Controllers\UserController;
-
 Route::get('user', [UserController::class, 'create']);
 Route::post('user', [UserController::class, 'store']);
 
-use App\Http\Controllers\WelcomeController;
-
 Route::get('contact', [ContactController::class, 'create']);
 Route::post('contact', [ContactController::class, 'store']);
-
-use Illuminate\Support\Facades\Route;
 
 Route::get('show', [JsonController::class, 'show']);
 Route::get('send', [JsonController::class, 'send']);
