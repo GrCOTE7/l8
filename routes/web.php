@@ -8,10 +8,10 @@
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\JsonController;
+use App\Http\Controllers\PhotoController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
-use App\Http\Controllers\TestController;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
@@ -54,3 +54,8 @@ Route::get('test-contact', function () {
 });
 
 Route::get('test', [TestController::class, 'show']);
+
+use Illuminate\Support\Facades\Route;
+
+Route::get('photo', [PhotoController::class, 'create']);
+Route::post('photo', [PhotoController::class, 'store']);
