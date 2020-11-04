@@ -10,6 +10,7 @@ use App\Http\Controllers\ContactController;
 use App\Http\Controllers\JsonController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -44,10 +45,12 @@ Route::post('contact', [ContactController::class, 'store']);
 Route::get('show', [JsonController::class, 'show']);
 Route::get('send', [JsonController::class, 'send']);
 
-Route::get('/test-contact', function () {
+Route::get('test-contact', function () {
   return new App\Mail\Contact([
     'nom'     => 'Durand',
     'email'   => 'durand@chezlui.com',
     'message' => 'Je voulais vous dire que votre site est magnifique !',
   ]);
 });
+
+Route::get('test', [TestController::class, 'show']);
