@@ -23,8 +23,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-
-
 Route::get('/', [WelcomeController::class, 'index'])->name('home');
 
 Route::get('{n}', function ($n) {
@@ -45,3 +43,11 @@ Route::post('contact', [ContactController::class, 'store']);
 
 Route::get('show', [JsonController::class, 'show']);
 Route::get('send', [JsonController::class, 'send']);
+
+Route::get('/test-contact', function () {
+  return new App\Mail\Contact([
+    'nom'     => 'Durand',
+    'email'   => 'durand@chezlui.com',
+    'message' => 'Je voulais vous dire que votre site est magnifique !',
+  ]);
+});
