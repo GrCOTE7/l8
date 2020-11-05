@@ -2,7 +2,6 @@
 
 /*
  * Ce fichier est la propriété de l8 (c) 2020
- *
  */
 
 namespace App\Http\Controllers;
