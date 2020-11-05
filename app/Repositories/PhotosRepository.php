@@ -8,7 +8,7 @@ namespace App\Repositories;
 
 use Illuminate\Http\UploadedFile;
 
-class PhotosRepository
+class PhotosRepository implements PhotosRepositoryInterface
 {
   public function save(UploadedFile $image)
   {
