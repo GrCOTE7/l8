@@ -2,7 +2,6 @@
 
 /*
  * Ce fichier est la propriété de l8 (c) 2020
- *
  */
 
 return [
@@ -71,7 +70,7 @@ return [
     |
     */
 
-  'timezone' => 'UTC',
+  'timezone' => 'Europe/Paris',
 
   /*
     |--------------------------------------------------------------------------

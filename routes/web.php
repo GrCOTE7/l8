@@ -42,6 +42,11 @@ Route::post('user', [UserController::class, 'store']);
 Route::get('contact', [ContactController::class, 'create']);
 Route::post('contact', [ContactController::class, 'store']);
 
+use App\Http\Controllers\ContactsController;
+
+Route::get('contact', [ContactsController::class, 'create'])->name('contact.create');
+Route::post('contact', [ContactsController::class, 'store'])->name('contact.store');
+
 Route::get('show', [JsonController::class, 'show']);
 Route::get('send', [JsonController::class, 'send']);
 
@@ -59,3 +64,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('photo', [PhotoController::class, 'create']);
 Route::post('photo', [PhotoController::class, 'store']);
+
+use App\Http\Controllers\FilmController;
+
+Route::resource('films', FilmController::class);
