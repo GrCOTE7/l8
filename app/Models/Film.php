@@ -16,4 +16,9 @@ class Film extends Model
   use SoftDeletes;
 
   protected $fillable = ['title', 'year', 'description'];
+
+  public function category()
+  {
+    return $this->belongsTo(Category::class);
+  }
 }
