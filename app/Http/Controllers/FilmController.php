@@ -7,6 +7,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Film as FilmRequest;
+use App\Models\Category;
 use App\Models\Film;
 
 class FilmController extends Controller
@@ -14,14 +15,17 @@ class FilmController extends Controller
   /**
    * Display a listing of the resource.
    *
+   * @param null|mixed $slug
+   *
    * @return \Illuminate\Http\Response
    */
-  public function index()
+  public function index($slug = null)
   {
-    // $films = Film::all();
-    $films = Film::withTrashed()->oldest('title')->paginate(5);
+    $query      = $slug ? Category::whereSlug($slug)->firstOrFail()->films() : Film::query();
+    $films      = $query->withTrashed()->oldest('title')->paginate(5);
+    $categories = Category::all();
 
-    return view('index', compact('films'));
+    return view('index', compact('films', 'categories', 'slug'));
   }
 
   /**
@@ -31,7 +35,8 @@ class FilmController extends Controller
    */
   public function create()
   {
-    return view('create');
+    $categories = Category::all();
+    return view('create', compact('categories'));
   }
 
   public function store(FilmRequest $filmRequest)
@@ -50,7 +55,9 @@ class FilmController extends Controller
    */
   public function show(Film $film)
   {
-    return view('show', compact('film'));
+    $category = $film->category->name;
+
+    return view('show', compact('film', 'category'));
   }
 
   /**

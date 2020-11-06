@@ -15,7 +15,7 @@ class Film extends Model
   use HasFactory;
   use SoftDeletes;
 
-  protected $fillable = ['title', 'year', 'description'];
+  protected $fillable = ['title', 'year', 'description', 'category_id'];
 
   public function category()
   {

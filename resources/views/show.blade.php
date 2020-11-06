@@ -8,6 +8,7 @@
         <div class="card-content">
             <div class="content">
                 <p>Année de sortie : <strong>{{  $film->year  }}</strong></p>
+                <p>Catégorie : <strong>{{ $category }}</strong></p>
                 <hr>
                 <p>{{ $film->description }}</p>
             </div>
