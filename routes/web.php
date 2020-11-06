@@ -2,16 +2,15 @@
 
 /*
  * Ce fichier est la propriété de l8 (c) 2020
- *
  */
 
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\FilmController;
 use App\Http\Controllers\JsonController;
 use App\Http\Controllers\PhotoController;
 use App\Http\Controllers\TestController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -42,7 +41,7 @@ Route::post('user', [UserController::class, 'store']);
 Route::get('contact', [ContactController::class, 'create']);
 Route::post('contact', [ContactController::class, 'store']);
 
-use App\Http\Controllers\ContactsController;
+use App\Http\Controllers\UserController;
 
 Route::get('contact', [ContactsController::class, 'create'])->name('contact.create');
 Route::post('contact', [ContactsController::class, 'store'])->name('contact.store');
@@ -60,11 +59,13 @@ Route::get('test-contact', function () {
 
 Route::get('test', [TestController::class, 'show']);
 
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\WelcomeController;
 
 Route::get('photo', [PhotoController::class, 'create']);
 Route::post('photo', [PhotoController::class, 'store']);
 
-use App\Http\Controllers\FilmController;
+use Illuminate\Support\Facades\Route;
 
 Route::resource('films', FilmController::class);
+Route::delete('films/force/{film}', [FilmController::class, 'forceDestroy'])->name('films.force.destroy');
+Route::put('films/restore/{film}', [FilmController::class, 'restore'])->name('films.restore');
