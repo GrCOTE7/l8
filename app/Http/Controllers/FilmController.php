@@ -23,7 +23,6 @@ class FilmController extends Controller
   {
     $query      = $slug ? Category::whereSlug($slug)->firstOrFail()->films() : Film::query();
     $films      = $query->withTrashed()->oldest('title')->paginate(5);
-    $categories = Category::all();
 
     return view('index', compact('films', 'categories', 'slug'));
   }
@@ -35,7 +34,6 @@ class FilmController extends Controller
    */
   public function create()
   {
-    $categories = Category::all();
     return view('create', compact('categories'));
   }
 
