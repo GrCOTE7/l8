@@ -8,10 +8,9 @@
 header('Content-Type: application/json');
 
 // The array with the data to return.
-$array = ['Coffee', 'Chocolate', 'Tea'];
-
+$arr = range(1,10);;
+// shuffle($arr);
+print_r($arr);
 // The JSON string created from the array.
-$json = json_encode($array);
 
 // Return the JSON string.
-echo $json;

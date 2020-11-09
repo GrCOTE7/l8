@@ -67,7 +67,8 @@ Route::post('photo', [PhotoController::class, 'store']);
 use Illuminate\Support\Facades\Route;
 
 Route::resource('films', FilmController::class);
-Route::delete('films/force/{film}', [FilmController::class, 'forceDestroy'])->name('films.force.destroy');
-Route::put('films/restore/{film}', [FilmController::class, 'restore'])->name('films.restore');
+
+Route::delete('films/force/{id}', 'FilmController@forceDestroy')->name('films.force.destroy');
+Route::put('films/restore/{id}', 'FilmController@restore')->name('films.restore');
 
 Route::get('category/{slug}/films', [FilmController::class, 'index'])->name('films.category');
