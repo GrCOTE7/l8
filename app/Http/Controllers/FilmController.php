@@ -24,7 +24,7 @@ class FilmController extends Controller
     $query      = $slug ? Category::whereSlug($slug)->firstOrFail()->films() : Film::query();
     $films      = $query->withTrashed()->oldest('title')->paginate(5);
 
-    return view('index', compact('films', 'categories', 'slug'));
+    return view('index', compact('films', 'slug'));
   }
 
   /**
@@ -34,7 +34,7 @@ class FilmController extends Controller
    */
   public function create()
   {
-    return view('create', compact('categories'));
+    return view('create');
   }
 
   public function store(FilmRequest $filmRequest)
