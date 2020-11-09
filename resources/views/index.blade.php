@@ -1,21 +1,16 @@
 @extends('template')
-
 @section('css')
     <style>
-        select, .is-info {
-            margin: 0.3em;
-        }
         .card-footer {
             justify-content: center;
             align-items: center;
             padding: 0.4em;
         }
-        .is-info {
+        select, .is-info {
             margin: 0.3em;
         }
     </style>
 @endsection
-
 @section('content')
     @if(session()->has('info'))
         <div class="notification is-success">
@@ -75,7 +70,7 @@
                                 </form>
                             </td>
                         </tr>
-                    @endforeach
+                        @endforeach
                     </tbody>
                 </table>
             </div>

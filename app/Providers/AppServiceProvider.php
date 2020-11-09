@@ -1,39 +1,22 @@
 <?php
 
-/*
- * Ce fichier est la propriété de l8 (c) 2020
- */
-
 namespace App\Providers;
 
-use App\Models\Category;
-use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\View;
+use App\Models\Category;
 
 class AppServiceProvider extends ServiceProvider
 {
-  /**
-   * Register any application services.
-   *
-   * @return void
-   */
-  public function register()
-  {
-    $this->app->bind(
-      'App\Repositories\PhotosRepositoryInterface',
-      'App\Repositories\PhotosRepository'
-    );
-  }
+    public function register()
+    {
+        //
+    }
 
-  /**
-   * Bootstrap any application services.
-   *
-   * @return void
-   */
-  public function boot()
-  {
-    View::composer(['index', 'create', 'edit'], function ($view) {
-      $view->with('categories', Category::all());
-    });
-  }
+    public function boot()
+    {
+        View::composer(['index', 'create', 'edit'], function ($view) {
+            $view->with('categories', Category::all());
+        });
+    }
 }

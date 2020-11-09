@@ -1,5 +1,4 @@
 @extends('template')
-
 @section('content')
     <div class="card">
         <header class="card-header">
@@ -11,15 +10,6 @@
                     @csrf
                     @method('put')
                     <div class="field">
-                        <label class="label">Titre</label>
-                        <div class="control">
-                          <input class="input @error('title') is-danger @enderror" type="text" name="title" value="{{ old('title', $film->title) }}" placeholder="Titre du film">
-                        </div>
-                        @error('title')
-                            <p class="help is-danger">{{ $message }}</p>
-                        @enderror
-                    </div>
-                    <div class="field">
                         <label class="label">Catégories</label>
                         <div class="select is-multiple">
                             <select name="cats[]" multiple>
@@ -28,6 +18,15 @@
                                 @endforeach
                             </select>
                         </div>
+                    </div>
+                    <div class="field">
+                        <label class="label">Titre</label>
+                        <div class="control">
+                          <input class="input @error('title') is-danger @enderror" type="text" name="title" value="{{ old('title', $film->title) }}" placeholder="Titre du film">
+                        </div>
+                        @error('title')
+                            <p class="help is-danger">{{ $message }}</p>
+                        @enderror
                     </div>
                     <div class="field">
                         <label class="label">Année de diffusion</label>

@@ -13,7 +13,7 @@
         @else
             <a class="pagination-next" disabled>@lang('pagination.next')</a>
         @endif
-
+        
 
         {{-- Pagination Elements --}}
         <ul class="pagination-list">

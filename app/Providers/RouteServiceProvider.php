@@ -2,12 +2,12 @@
 
 namespace App\Providers;
 
-use App\Models\Film;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 use Illuminate\Cache\RateLimiting\Limit;
-use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\RateLimiter;
+use Illuminate\Support\Facades\Route;
+use App\Models\Film;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -21,13 +21,13 @@ class RouteServiceProvider extends ServiceProvider
     public const HOME = '/home';
 
     /**
-     * The controller namespace for the application.
+     * If specified, this namespace is automatically applied to your controller routes.
      *
-     * When present, controller route declarations will automatically be prefixed with this namespace.
+     * In addition, it is set as the URL generator's root namespace.
      *
-     * @var string|null
+     * @var string
      */
-    // protected $namespace = 'App\\Http\\Controllers';
+    protected $namespace = null;
 
     /**
      * Define your route model bindings, pattern filters, etc.
@@ -39,20 +39,17 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function () {
+            Route::middleware('web')
+                ->group(base_path('routes/web.php'));
+
             Route::prefix('api')
                 ->middleware('api')
-                ->namespace($this->namespace)
                 ->group(base_path('routes/api.php'));
-
-            Route::middleware('web')
-                ->namespace($this->namespace)
-                ->group(base_path('routes/web.php'));
         });
 
         Route::bind('film', function ($value) {
             return Film::with('categories')->find($value) ?? abort(404);
         });
-
     }
 
     /**
@@ -63,7 +60,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function configureRateLimiting()
     {
         RateLimiter::for('api', function (Request $request) {
-            return Limit::perMinute(60)->by(optional($request->user())->id ?: $request->ip());
+            return Limit::perMinute(60);
         });
     }
 }

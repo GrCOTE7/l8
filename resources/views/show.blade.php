@@ -1,5 +1,4 @@
 @extends('template')
-
 @section('content')
     <div class="card">
         <header class="card-header">
