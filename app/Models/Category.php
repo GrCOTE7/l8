@@ -9,8 +9,10 @@ class Category extends Model
 {
     use HasFactory;
 
-    public function films() 
-    { 
-        return $this->belongsToMany(Film::class); 
+    protected $fillable = ['name', 'slug'];
+
+    public function films()
+    {
+        return $this->morphToMany(Film::class, 'filmable');
     }
 }
