@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
   return view('welcome');
-});
+})->name('home');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/', function ()    {
@@ -38,5 +38,5 @@ Route::get('/', function () {
 // Route::get('actor/{slug}/films', [FilmController::class, 'index'])->name('films.actor');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+  return view('dashboard');
 })->name('dashboard');

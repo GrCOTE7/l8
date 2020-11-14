@@ -7,6 +7,7 @@
 $uri = urldecode(
   parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH)
 );
+
 //2do Tuto API REST https://openclassrooms.com/fr/courses/6573181-adoptez-les-api-rest-pour-vos-projets-web
 
 // This file allows us to emulate Apache's "mod_rewrite" functionality from the
