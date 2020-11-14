@@ -22,8 +22,21 @@ Route::get('/', function () {
   return view('welcome');
 });
 
+// Route::middleware('auth')->group(function () {
+//     Route::get('/', function ()    {
+//         // Réservé aux utilisateurs authentifiés
+//     });
+//     Route::get('comptes', function () {
+//         // Réservé aux utilisateurs authentifiés
+//     });
+// });
+
 // Route::resource('films', FilmController::class);
 // Route::delete('films/force/{id}', [FilmController::class, 'forceDestroy'])->name('films.force.destroy');
 // Route::put('films/restore/{id}', [FilmController::class, 'restore'])->name('films.restore');
 // Route::get('category/{slug}/films', [FilmController::class, 'index'])->name('films.category');
 // Route::get('actor/{slug}/films', [FilmController::class, 'index'])->name('films.actor');
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
