@@ -8,7 +8,7 @@ namespace App\Http\Controllers;
 
 class ArrController extends Controller
 {
-  public function show()
+  public function show1()
   {
     // declare colors array
     $colors = ['blue', 'red', 'blue', 'green', 'yellow', 'blue'];
@@ -35,6 +35,26 @@ class ArrController extends Controller
     ];
     // $keys = [1, 2, 3];
 
+    return view('arr')->withKeys($keys);
+  }
+
+  public function show2()
+  {
+    // declare colors array
+    $colors = ['blue', 'red', 'blue', 'green', 'yellow', 'blue'];
+
+    // find number of times value appeared in an array
+    $result = array_count_values($colors);
+
+    // count total elements in array
+    $total = \count($colors);
+
+    $keys = [
+      'colors', $colors,
+      'array_count_values($colors)', $result,
+      'count()', $total,
+    ];
+    // $keys = [1, 2, 3];
     return view('arr')->withKeys($keys);
   }
 }

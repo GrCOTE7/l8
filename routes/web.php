@@ -23,7 +23,8 @@ Route::get('/', function () {
   return view('welcome');
 })->name('welcome');
 
-Route::get('arr', [ArrController::class, 'show'])->name('arr');
+Route::get('arr1', [ArrController::class, 'show1'])->name('arr');
+Route::get('arr2', [ArrController::class, 'show2'])->name('arr');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/', function ()    {
