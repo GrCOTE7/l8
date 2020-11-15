@@ -21,16 +21,27 @@ class ArrController extends Controller
     $values = array_values($colors);
 
     // debug
-    echo '<pre>';
-    print_r($keys);
-    print_r($values);
-    print_r($blueKeys);
-    echo '</pre>';
+    // echo '<pre>';
+    // print_r($keys);
+    // print_r($values);
+    // print_r($blueKeys);
+    // echo '</pre>';
 
     // get first key of colors array
     $firstKey = array_key_first($colors);
 
     // get last key of colors array
-    return array_key_last($colors);
+    $lastKey = array_key_last($colors);
+
+    $keys = [
+      'array_keys()', $keys,
+      'colors', $values,
+      'array_keys($colors, \'blue\', true)', $blueKeys,
+      'Firstkey()', $firstKey,
+      'LastKay', $lastKey,
+    ];
+    // $keys = [1, 2, 3];
+
+    return view('arr')->withKeys($keys);
   }
 }
