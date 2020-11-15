@@ -8,6 +8,7 @@ class Filmables extends Migration
 {
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('filmables', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
@@ -23,6 +24,7 @@ class Filmables extends Migration
 
     public function down()
     {
-        Schema::dropIfExists('filmable');
+        Schema::disableForeignKeyConstraints();
+        Schema::dropIfExists('filmables');
     }
 }

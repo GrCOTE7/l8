@@ -1,10 +1,13 @@
 <?php
 
+/*
+ * Ce fichier est la propriété de l8 (c) 2020
+ */
+
 use Laravel\Jetstream\Features;
 
 return [
-
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Jetstream Stack
     |--------------------------------------------------------------------------
@@ -15,9 +18,9 @@ return [
     |
     */
 
-    'stack' => 'livewire',
+  'stack' => 'livewire',
 
-    /*
+  /*
     |--------------------------------------------------------------------------
     | Features
     |--------------------------------------------------------------------------
@@ -28,10 +31,9 @@ return [
     |
     */
 
-    'features' => [
-        // Features::profilePhotos(),
-        // Features::api(),
-        // Features::teams(),
-    ],
-
+  'features' => [
+    Features::profilePhotos(),
+    // Features::api(),
+    // Features::teams(),
+  ],
 ];
