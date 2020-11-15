@@ -20,13 +20,6 @@ class ArrController extends Controller
     // get all values for colors array
     $values = array_values($colors);
 
-    // debug
-    // echo '<pre>';
-    // print_r($keys);
-    // print_r($values);
-    // print_r($blueKeys);
-    // echo '</pre>';
-
     // get first key of colors array
     $firstKey = array_key_first($colors);
 
