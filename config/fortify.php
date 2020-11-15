@@ -3,6 +3,21 @@
 use App\Providers\RouteServiceProvider;
 use Laravel\Fortify\Features;
 
+
+
+/*
+
+zcSYaWdgq1-kj18U5lROl
+DJRfXyyv1T-EbGOSD2Zhn
+E1yxXjDNvc-qtZ93bE7Af
+Xu5ybsHDJi-Dqkqr01Qdu
+kyK5JZBIfi-s3HHvC8B5a
+BoS9W1O76J-mtWVmHJcZi
+L1nfsQRPGg-l6zOUMK8Bn
+0d3FOGc3DO-90ejkTRd3W
+
+*/
+
 return [
 
     /*
