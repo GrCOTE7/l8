@@ -49,10 +49,23 @@ class ArrController extends Controller
     // count total elements in array
     $total = \count($colors);
 
+    // define multi-dimensional array
+    $multiArr = [
+      ['a' => 1, 'b' => 2, 'c' => 2],
+      ['a' => 4, 'b' => 5, 'c' => 4],
+      ['a' => 7, 'b' => 8, 'c' => 3],
+    ];
+
+    $keyToSort = 'c';
+    usort($multiArr, function ($a, $b) use ($keyToSort) {
+      return $a[$keyToSort] <=> $b[$keyToSort];
+    });
+
     $keys = [
       'colors', $colors,
       'array_count_values($colors)', $result,
       'count()', $total,
+      'multiArr', $multiArr,
     ];
     // $keys = [1, 2, 3];
     return view('arr')->withKeys($keys);
