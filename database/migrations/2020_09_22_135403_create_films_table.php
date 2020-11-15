@@ -17,7 +17,6 @@ class CreateFilmsTable extends Migration
    */
   public function up()
   {
-    Schema::disableForeignKeyConstraints();
     Schema::create('films', function (Blueprint $table) {
       $table->id();
       $table->string('title');
@@ -35,7 +34,6 @@ class CreateFilmsTable extends Migration
    */
   public function down()
   {
-    Schema::disableForeignKeyConstraints();
     Schema::dropIfExists('films');
   }
 }
