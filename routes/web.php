@@ -6,6 +6,7 @@
 
 // use App\Http\Controllers\FilmController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ArrController;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
   return view('welcome');
 })->name('welcome');
+
+Route::get('arr', [ArrController::class, 'show'])->name('arr');
 
 // Route::middleware('auth')->group(function () {
 //     Route::get('/', function ()    {
