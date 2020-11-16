@@ -3,7 +3,13 @@
 use App\Providers\RouteServiceProvider;
 use Laravel\Fortify\Features;
 
+/*
 
+Jeton API
+
+KENxwJi1r9VlsLak3iE1mMLs06nr2M8G9zdqUHac
+
+*/
 
 /*
 
