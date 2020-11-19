@@ -12,8 +12,10 @@ class UController extends Controller
 {
   public function index()
   {
-      $theLocale =App::getLocale();
+    $theLocale = App::getLocale();
 
-    return view('u')->withTheLocale($theLocale);
+    $msg = 'Get In Touch With Us';
+
+    return view('u',['msg'=>$msg])->withTheLocale($theLocale);
   }
 }

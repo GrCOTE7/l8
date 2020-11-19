@@ -3,6 +3,8 @@
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
 
             Locale: <strong>{{ $theLocale }}</strong>
+            <br>
+            @lang( $msg )
             <hr>
             @lang('All rights reserved.')
 
