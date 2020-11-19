@@ -1,7 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+/*
+ * Ce fichier est la propriété de l8 (c) 2020
+ */
 
+use App\Events\Accueil;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -12,11 +15,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+  event(new Accueil());
+
+  return view('welcome');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+  return view('dashboard');
 })->name('dashboard');
