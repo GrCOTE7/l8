@@ -6,6 +6,8 @@
 
 namespace App\Listeners;
 
+use Illuminate\Auth\Events\Login;
+
 class UserLogin
 {
   /**
@@ -24,7 +26,7 @@ class UserLogin
    *
    * @return void
    */
-  public function handle($event)
+  public function handle(Login $event)
   {
     // dd($event);
     dd($event->user->name." s'est connecté.");

@@ -24,7 +24,7 @@ class EventServiceProvider extends ServiceProvider
     Registered::class => [
       SendEmailVerificationNotification::class,
     ],
-    Login::class => [UserLogin::class],
+    // Login::class => [UserLogin::class],
     ];
 
   /**
@@ -34,5 +34,15 @@ class EventServiceProvider extends ServiceProvider
    */
   public function boot()
   {
+  }
+
+  /**
+   * Determine if events and listeners should be automatically discovered.
+   *
+   * @return bool
+   */
+  public function shouldDiscoverEvents()
+  {
+    return true;
   }
 }
