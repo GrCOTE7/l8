@@ -6,10 +6,14 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\App;
+
 class UController extends Controller
 {
   public function index()
   {
-    return 'ok';
+      $theLocale =App::getLocale();
+
+    return view('u')->withTheLocale($theLocale);
   }
 }
