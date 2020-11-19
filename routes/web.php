@@ -24,7 +24,7 @@ Route::get('/', function () {
   return view('welcome');
 });
 
-Route::get('u', ['UController', 'index']);
+Route::get('u', [UController::class, 'index']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
   return view('dashboard');
