@@ -15,6 +15,7 @@ use App\Events\Accueil;
 | contains the "web" middleware group. Now create something great!
 |
 */
+use App\Http\Controllers\UController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -22,6 +23,8 @@ Route::get('/', function () {
 
   return view('welcome');
 });
+
+Route::get('u', ['UController', 'index']);
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
   return view('dashboard');
