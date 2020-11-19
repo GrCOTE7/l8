@@ -29,6 +29,6 @@ class UserLogin
   public function handle(Login $event)
   {
     // dd($event);
-    dd($event->user->name." s'est connecté.");
+    // dd($event->user->name." s'est connecté.");
   }
 }
