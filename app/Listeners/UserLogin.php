@@ -1,30 +1,32 @@
 <?php
 
-namespace App\Listeners;
+/*
+ * Ce fichier est la propriété de l8 (c) 2020
+ */
 
-use Illuminate\Contracts\Queue\ShouldQueue;
-use Illuminate\Queue\InteractsWithQueue;
+namespace App\Listeners;
 
 class UserLogin
 {
-    /**
-     * Create the event listener.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
+  /**
+   * Create the event listener.
+   *
+   * @return void
+   */
+  public function __construct()
+  {
+  }
 
-    /**
-     * Handle the event.
-     *
-     * @param  object  $event
-     * @return void
-     */
-    public function handle($event)
-    {
-        //
-    }
+  /**
+   * Handle the event.
+   *
+   * @param object $event
+   *
+   * @return void
+   */
+  public function handle($event)
+  {
+    // dd($event);
+    dd($event->user->name." s'est connecté.");
+  }
 }
