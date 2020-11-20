@@ -6,6 +6,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Support\Facades\App;
 
 class UController extends Controller
@@ -16,6 +17,8 @@ class UController extends Controller
 
     $msg = 'Get In Touch With Us';
 
-    return view('u',['msg'=>$msg])->withTheLocale($theLocale);
+    $user = User::findOrFail(1);
+
+    return view('u', ['msg' => $msg, 'user' => $user])->withTheLocale($theLocale);
   }
 }

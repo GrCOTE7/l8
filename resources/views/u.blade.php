@@ -6,14 +6,23 @@
 
     <h1>Test</h1>
 
-    <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+    <hr>
 
-        Locale: <strong>{{ $theLocale }}</strong>
-        <br>
-        @lang( $msg )
-        <hr>
-        @lang('All rights reserved.')
+    <p>Locale: <strong>{{ $theLocale }}</strong></p>
 
-    </h2>
+    <p>@lang( $msg )</p>
+
+    <p>{{ $user->name }}: <strong>{{ env('MAIL_FROM_ADDRESS') }}</strong></p>
+
+    <footer class="footer">
+        {{-- <div class="container"> --}}
+            <span class="text-muted">© {{ now()->year }} Copyright:
+                <a href="https://c57.fr.com/"> GC7</a> - @lang('All rights reserved.')</span>
+            {{--
+        </div> --}}
+        </div>
+    </footer>
+
+
 
 @endsection
