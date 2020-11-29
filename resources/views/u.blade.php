@@ -17,11 +17,9 @@
     <footer class="footer">
         <div class="container">
             <span class="text-muted">© {{ now()->year }} Copyright:
-                <a href="https://c57.fr.com/"> GC7</a> - @lang('All rights reserved.')
+                <a href="https://c57.fr" target="_blank"> GC7</a> - @lang('All rights reserved.')
             </span>
         </div>
     </footer>
-
-
 
 @endsection
