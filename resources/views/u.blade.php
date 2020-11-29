@@ -10,7 +10,9 @@
 
     <p>Locale: <strong>{{ $theLocale }}</strong></p>
 
-    <p>@lang( $msg )</p>
+    <p>@lang( $msg ) !</p>
+
+    <p>@lang('We have got') {{ $subscribers }} @lang($textSubs).</p>
 
     <p>{{ $user->name }}: <strong>{{ env('MAIL_FROM_ADDRESS') }}</strong></p>
 

@@ -19,6 +19,9 @@ class UController extends Controller
 
     $user = User::findOrFail(1);
 
-    return view('u', ['msg' => $msg, 'user' => $user])->withTheLocale($theLocale);
+    $subscribers = 10;
+    $textSubs    = trans_choice(__('comment|comments'), $subscribers);
+
+    return view('u', ['msg' => $msg, 'user' => $user, 'subscribers' => $subscribers, 'textSubs' => $textSubs])->withTheLocale($theLocale);
   }
 }
