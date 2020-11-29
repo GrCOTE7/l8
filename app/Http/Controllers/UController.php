@@ -14,7 +14,7 @@ class UController extends Controller
   public function index()
   {
       
-    // App::setLocale('en'); // Si commenté fr par défaut config/app/php
+    App::setLocale('en'); // Si commenté fr par défaut config/app/php
 
       $theLocale = App::getLocale();
 
@@ -22,7 +22,7 @@ class UController extends Controller
 
     $user = User::findOrFail(1);
 
-    $subscribers = 10;
+    $subscribers = 1; // Try 10
     $textSubs    = trans_choice(__('comment|comments'), $subscribers);
 
     return view('u', ['msg' => $msg, 'user' => $user, 'subscribers' => $subscribers, 'textSubs' => $textSubs])->withTheLocale($theLocale);
