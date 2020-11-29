@@ -15,11 +15,9 @@
     <p>{{ $user->name }}: <strong>{{ env('MAIL_FROM_ADDRESS') }}</strong></p>
 
     <footer class="footer">
-        {{-- <div class="container"> --}}
+        <div class="container">
             <span class="text-muted">© {{ now()->year }} Copyright:
                 <a href="https://c57.fr.com/"> GC7</a> - @lang('All rights reserved.')</span>
-            {{--
-        </div> --}}
         </div>
     </footer>
 
