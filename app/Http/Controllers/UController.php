@@ -13,7 +13,10 @@ class UController extends Controller
 {
   public function index()
   {
-    $theLocale = App::getLocale();
+      
+    // App::setLocale('en'); // Si commenté fr par défaut config/app/php
+
+      $theLocale = App::getLocale();
 
     $msg = 'Get In Touch With Us';
 

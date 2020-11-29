@@ -8,6 +8,12 @@
 
     <hr>
 
+    Date : {{ \Carbon\Carbon::now()->isoFormat('LL') }}
+    <br>
+    <i>({{ \Carbon\Carbon::now()->calendar() }})</i>
+
+    <hr>
+
     <p>Locale: <strong>{{ $theLocale }}</strong></p>
 
     <p>@lang( $msg ) !</p>
