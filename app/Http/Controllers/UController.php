@@ -13,15 +13,11 @@ class UController extends Controller
 {
   public function index()
   {
-      
     App::setLocale('en'); // Si commenté fr par défaut config/app/php
 
-      $theLocale = App::getLocale();
-
-    $msg = 'Get In Touch With Us';
-
-    $user = User::findOrFail(1);
-
+    $theLocale   = App::getLocale();
+    $msg         = 'Get In Touch With Us';
+    $user        = User::findOrFail(1);
     $subscribers = 1; // Try 10
     $textSubs    = trans_choice(__('comment|comments'), $subscribers);
 
