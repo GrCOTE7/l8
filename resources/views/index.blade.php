@@ -6,16 +6,17 @@
             align-items: center;
             padding: 0.4em;
         }
-        select, .is-info {
+
+        select,
+        .is-info {
             margin: 0.3em;
         }
+
     </style>
 @endsection
 @section('content')
-    @if(session()->has('info'))
-        <div class="notification is-success">
-            {{ session('info') }}
-        </div>
+    @if (session()->has('info'))
+        <x-notification :text="session('info')" />
     @endif
     <div class="card">
         <header class="card-header">
@@ -23,16 +24,18 @@
             <div class="select">
                 <select onchange="window.location.href = this.value">
                     <option value="{{ route('films.index') }}" @unless($slug) selected @endunless>Tous acteurs</option>
-                    @foreach($actors as $actor)
-                        <option value="{{ route('films.actor', $actor->slug) }}" {{ $slug == $actor->slug ? 'selected' : '' }}>{{ $actor->name }}</option>
+                    @foreach ($actors as $actor)
+                        <option value="{{ route('films.actor', $actor->slug) }}"
+                            {{ $slug == $actor->slug ? 'selected' : '' }}>{{ $actor->name }}</option>
                     @endforeach
                 </select>
             </div>
             <div class="select">
                 <select onchange="window.location.href = this.value">
                     <option value="{{ route('films.index') }}" @unless($slug) selected @endunless>Toutes catégories</option>
-                    @foreach($categories as $category)
-                        <option value="{{ route('films.category', $category->slug) }}" {{ $slug == $category->slug ? 'selected' : '' }}>{{ $category->name }}</option>
+                    @foreach ($categories as $category)
+                        <option value="{{ route('films.category', $category->slug) }}"
+                            {{ $slug == $category->slug ? 'selected' : '' }}>{{ $category->name }}</option>
                     @endforeach
                 </select>
             </div>
