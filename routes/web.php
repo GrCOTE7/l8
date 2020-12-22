@@ -1,12 +1,6 @@
 <?php
 
-/*
- * Ce fichier est la propriété de l8 (c) 2020
- */
-
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FilmController;
-use App\Http\Controllers\WelcomeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +14,9 @@ use App\Http\Controllers\WelcomeController;
 */
 
 Route::get('/', function () {
-    return view('welcome')->with('message', 'Vous y êtes !');
+    return view('welcome');
 });
 
-Route::get('welcome', [ WelcomeController::class, 'index']);
-
-Route::resource('films', FilmController::class);
-Route::delete('films/force/{id}', [FilmController::class, 'forceDestroy'])->name('films.force.destroy');
-Route::put('films/restore/{id}', [FilmController::class, 'restore'])->name('films.restore');
-Route::get('category/{slug}/films', [FilmController::class, 'index'])->name('films.category');
-Route::get('actor/{slug}/films', [FilmController::class, 'index'])->name('films.actor');
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
