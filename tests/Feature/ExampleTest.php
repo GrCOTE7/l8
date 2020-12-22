@@ -8,6 +8,8 @@ namespace Tests\Feature;
 
 use Tests\TestCase;
 
+// En cli: php artisan test --testdox
+
 /**
  * @internal
  * @coversNothing
@@ -22,7 +24,8 @@ final class ExampleTest extends TestCase
   public function testBasicTest()
   {
     $response = $this->get('/');
-    // $response->assertStatus(200);
-    $this->assertSame('cosucou', $response->getContent());
+    $response->assertSuccessful();
+    $response->assertStatus(200);
+    $this->assertSame('coucou', $response->getContent());
   }
 }
