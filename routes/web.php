@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-  return 'coucou';
+    return view('welcome')->with('message', 'Vous y êtes !');
 });
 
 Route::resource('films', FilmController::class);

@@ -24,8 +24,6 @@ final class ExampleTest extends TestCase
   public function testBasicTest()
   {
     $response = $this->get('/');
-    $response->assertSuccessful();
-    $response->assertStatus(200);
-    $this->assertSame('coucou', $response->getContent());
+    $response->assertViewHas('message', 'Vous y êtes !');
   }
 }
