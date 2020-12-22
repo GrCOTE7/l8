@@ -6,6 +6,7 @@
 
 namespace Tests\Feature;
 
+use App\Services\Livre;
 use Tests\TestCase;
 
 /**
@@ -14,20 +15,18 @@ use Tests\TestCase;
  */
 final class WelcomeControllerTest extends TestCase
 {
-  /**
-   * A basic feature test example.
-   *
-   * @return void
-   */
-  public function testExample()
-  {
-    $response = $this->get('/');
-    $response->assertStatus(200);
-  }
-
   public function testIndex()
   {
+    // Création Mock
+    $this->mock(Livre::class, function ($mock) {
+        $mock->shouldReceive('getTitle')->andReturn('Titre Du Livre');
+    });
+
+    // Action
     $response = $this->get('welcome');
-    $response->assertStatus(200);
+
+    // Assertions
+    $response->assertSuccessful();
+    $response->assertViewHas('titre', 'Titre Du Livre');
   }
 }
