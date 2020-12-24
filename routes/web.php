@@ -1,6 +1,10 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+/*
+ * Ce fichier est la propriété de l8 (c) 2020
+ */
+
+use App\Http\Controllers\TaskController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,9 +18,13 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
 });
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
+  return view('dashboard');
 })->name('dashboard');
+
+use Illuminate\Support\Facades\Route;
+
+Route::resource('tasks', TaskController::class)->middleware('auth');
