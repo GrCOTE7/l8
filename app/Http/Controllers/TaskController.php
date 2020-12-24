@@ -6,9 +6,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Task;
-use Illuminate\Http\Request;
 use App\Http\Requests\TaskRequest;
+use App\Models\Task;
 
 class TaskController extends Controller
 {
@@ -53,8 +52,9 @@ class TaskController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function show($id)
+  public function show(Task $task)
   {
+    return view('tasks.show', compact('task'));
   }
 
   /**
