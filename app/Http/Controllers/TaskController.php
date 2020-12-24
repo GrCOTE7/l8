@@ -8,6 +8,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Task;
 use Illuminate\Http\Request;
+use App\Http\Requests\TaskRequest;
 
 class TaskController extends Controller
 {
@@ -35,12 +36,8 @@ class TaskController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function store(Request $request)
+  public function store(TaskRequest $request)
   {
-    $data = $request->validate([
-      'title'  => 'required|max:100',
-      'detail' => 'required|max:500',
-    ]);
     $task         = new Task();
     $task->title  = $request->title;
     $task->detail = $request->detail;
@@ -79,12 +76,8 @@ class TaskController extends Controller
    *
    * @return \Illuminate\Http\Response
    */
-  public function update(Request $request, Task $task)
+  public function update(TaskRequest $request, Task $task)
   {
-    $data = $request->validate([
-      'title'  => 'required|max:100',
-      'detail' => 'required|max:500',
-    ]);
     $task->title  = $request->title;
     $task->detail = $request->detail;
     $task->state  = $request->has('state');
