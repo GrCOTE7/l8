@@ -10,6 +10,8 @@ use Livewire\Component;
 
 class ShowPosts extends Component
 {
+    public $message = 'Coucou !';
+    
   public function render()
   {
     return view('livewire.show-posts')->layout('layouts.guest');
