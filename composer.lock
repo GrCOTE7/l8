@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "096b531bb674e68950b0bad4b7f38383",
+    "content-hash": "288d9d85a2aa422eb713385d4ace0cbf",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -4929,6 +4929,92 @@
                 "source": "https://github.com/tijsverkoyen/CssToInlineStyles/tree/2.2.3"
             },
             "time": "2020-07-13T06:12:54+00:00"
+        },
+        {
+            "name": "torrix/laravel-uikit",
+            "version": "v0.1.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/torrix/laravel-uikit.git",
+                "reference": "a6ca2cd45b8e37f4201510c640fdca109b055750"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/torrix/laravel-uikit/zipball/a6ca2cd45b8e37f4201510c640fdca109b055750",
+                "reference": "a6ca2cd45b8e37f4201510c640fdca109b055750",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^8.3",
+                "uikit/uikit": "^v3.5.7"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Torrix\\LaravelUikitServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Torrix\\": "app/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Matt Fletcher",
+                    "email": "matt@torrix.uk"
+                }
+            ],
+            "description": "UIkit starter template for Laravel 8",
+            "keywords": [
+                "fortify",
+                "jetstream",
+                "laravel",
+                "uikit"
+            ],
+            "support": {
+                "issues": "https://github.com/torrix/laravel-uikit/issues",
+                "source": "https://github.com/torrix/laravel-uikit/tree/v0.1.3"
+            },
+            "time": "2020-10-26T00:12:02+00:00"
+        },
+        {
+            "name": "uikit/uikit",
+            "version": "v3.6.4",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/uikit/uikit.git",
+                "reference": "a73aa40a2ff3c264b055d2ab9c90df1ee22d0026"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/uikit/uikit/zipball/a73aa40a2ff3c264b055d2ab9c90df1ee22d0026",
+                "reference": "a73aa40a2ff3c264b055d2ab9c90df1ee22d0026",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0.x-dev"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "UIkit is a lightweight and modular front-end framework for developing fast and powerful web interfaces.",
+            "homepage": "https://getuikit.com/",
+            "support": {
+                "issues": "https://github.com/uikit/uikit/issues",
+                "source": "https://github.com/uikit/uikit/tree/v3.6.4"
+            },
+            "time": "2020-12-21T11:44:27+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
