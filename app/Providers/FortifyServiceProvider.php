@@ -1,5 +1,9 @@
 <?php
 
+/*
+ * Ce fichier est la propriété de l8 (c) 2020
+ */
+
 namespace App\Providers;
 
 use App\Actions\Fortify\CreateNewUser;
@@ -11,26 +15,25 @@ use Laravel\Fortify\Fortify;
 
 class FortifyServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
+  /**
+   * Register any application services.
+   *
+   * @return void
+   */
+  public function register()
+  {
+  }
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        Fortify::createUsersUsing(CreateNewUser::class);
-        Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
-        Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
-        Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
-    }
+  /**
+   * Bootstrap any application services.
+   *
+   * @return void
+   */
+  public function boot()
+  {
+    Fortify::createUsersUsing(CreateNewUser::class);
+    Fortify::updateUserProfileInformationUsing(UpdateUserProfileInformation::class);
+    Fortify::updateUserPasswordsUsing(UpdateUserPassword::class);
+    Fortify::resetUserPasswordsUsing(ResetUserPassword::class);
+  }
 }
