@@ -13,5 +13,6 @@ Route::middleware('web')->group(function () {
 Route::middleware('auth')->group(function () {
   Route::prefix('profile')->group(function () {
     Route::view('updatepassword', 'profile.updatepassword')->name('profile.updatepassword');
+    Route::view('updateinfos', 'profile.updateinfos')->name('profile.updateinfos');
   });
 });

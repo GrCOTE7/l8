@@ -77,10 +77,10 @@
                                             <ul class="uk-nav uk-navbar-dropdown-nav">
 
                                                 <li class="uk-nav-header">@lang('Profile')</li>
-                                                <li>
-                                                    <a href="{{ route('profile.updatepassword') }}">@lang('Update
-                                                        Password')</a>
-                                                </li>
+                                                <li><a href="{{ route('profile.updatepassword') }}">@lang('Update
+                                                        Password')</a></li>
+                                                <li><a href="{{ route('profile.updateinfos') }}">@lang('Profile
+                                                        informations')</a></li>
 
                                                 <li class="uk-nav-divider"></li>
 
